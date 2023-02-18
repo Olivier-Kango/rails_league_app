@@ -29,3 +29,24 @@
   color: blue;
   text-decoration: underline;
 }
+
+.buttonn {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 5px;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+  background: blue;
+  width: fit-content;
+  margin: 0 auto;
+  padding: 0.6rem;
+  border-radius: 5px;
+}

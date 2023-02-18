@@ -25,9 +25,9 @@
     <%end%>
   <%else%>
     <tr>
-      <td colspan="3" class="text-center text-danger">You need to add data first !!!</td>
+      <td colspan="3" class="text-center text-danger py-4 display-6">You need to add members first !!!</td>
     </tr>
   <%end%>
 </table>
 
-<%= link_to "Create New Player", new_player_path %>
+<%= link_to "Create New Player", new_player_path, class: "button" %>
