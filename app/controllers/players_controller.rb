@@ -13,7 +13,18 @@ class PlayersController < ApplicationController
     if @player.save
       redirect_to players_path, notice: "Player was successfully created"
     else
+      flash[:errors] = @player.errors.full_messages
       render :new
+    end
+  end
+
+  def destroy
+    player = Player.find(params[:id])
+
+   if player.destroy
+      redirect_to root_path, notice: "Player was deleted successfully."
+    else
+      redirect_to root_path, alert: "An error has occurred while deleting player, try again."
     end
   end
 
@@ -22,5 +33,4 @@ class PlayersController < ApplicationController
   def player_params
     params.require(:player).permit(:first_name, :last_name, :age, :team_id)
   end
-
 end

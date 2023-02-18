@@ -1,18 +1,25 @@
 <h1 class="text-center text-decoration-underline">There are <%= @players.size %> Members in our family </h1>
 
+<% if notice %>
+  <div class="alert alert-success text-center"><%= notice %></div>
+<% end %>
+
 <table class="table table-bordered bg-white">
   <thead class="bg-info-subtle">
     <tr>
       <th class="px-4">Names</th>
       <th class="text-center">Age</th>
+      <th class="text-center">Remove</th>
     </tr>
   </thead>
   <tbody>
   </tbody>
+  
   <% @players.each_with_index do |player, index| %>
     <tr>
       <td class="px-4"><%= "#{index+1}) #{player.first_name} #{player.last_name}" %></td>
       <td class="text-center"><%= player.age %></td>
+      <td class="text-center"><%= button_to "Remove", player, method: :delete, data: { turbo: false }, class: "bg-danger-subtle border-danger text-danger text-decoration-none" %></td>
     </tr>
   <%end%>
 </table>

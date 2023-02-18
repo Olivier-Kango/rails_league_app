@@ -1,29 +1,27 @@
-<div>
-  <h1>Add a new player</h1>
+<% if flash[:errors] %>
+  <% flash[:errors].each do |e| %>
+    <p class="text-center text-danger font-italic"><%= e %></p>
+  <%end%>
+<% end %>
+
+<div class="mx-5">
+  <h1 class="text-center">Add a new player</h1>
   <br />
   <%= form_for @player do |f| %>
     <div>
-      <%= f.label :firstname %>
-      <br />
-      <%= f.text_field :first_name, class: "w-100" %>
+      <%= f.text_field :first_name, class: "w-100 py-2 px-3", placeholder: "First Name" %>
+    </div>
+     <br />
+    <div>
+      <%= f.text_field :last_name, class: "w-100 py-2 px-3", placeholder: "Last Name" %>
     </div>
     <br />
     <div>
-      <%= f.label :last_name %>
-      <br />
-      <%= f.text_field :last_name, class: "w-100" %>
+      <%= f.number_field :age, class: "w-100 py-2 px-3", placeholder: "Age" %>
     </div>
     <br />
     <div>
-      <%= f.label :age%>
-      <br />
-      <%= f.number_field :age, class: "w-100" %>
-    </div>
-    <br />
-    <div>
-      <%= f.label :team%>
-      <br />
-      <%= f.collection_select :team_id, Team.all, :id, :name, { include_blank: true }, { class: "w-100 p-1" } %>
+      <%= f.collection_select :team_id, Team.all, :id, :name, { include_blank: "Select Team" }, { class: "w-100 py-2 px-3" } %>
     </div>
     <br />
 
