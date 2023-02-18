@@ -11,6 +11,10 @@ class PlayersController < ApplicationController
     @player = Player.find(params[:id])
   end
 
+  def edit
+    @player = Player.find(params[:id])
+  end
+
   def create
     @player = Player.new(player_params)
 
@@ -21,6 +25,21 @@ class PlayersController < ApplicationController
       render :new
     end
   end
+
+
+  def update
+    @player = Player.find(params[:id])
+    respond_to do |format|
+      if @player.update(player_params)
+        format.html { redirect_to player_url(@player), notice: "Player was successfully updated." }
+        format.json { render :show, status: :ok, location: @friend }
+      else
+        format.html { render :edit, status: :unprocessable_entity }
+        format.json { render json: @player.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
 
   def destroy
     player = Player.find(params[:id])

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "players#index"
+  # get "players/:id/edit"
 end
