@@ -8,6 +8,8 @@ class Player < ApplicationRecord
   validates :last_name, presence: true, on: :create
   validates :age, presence: true, numericality: { greater_than: 0, less_than_or_equal_to: 100 }
 
+  default_scope { order(age: :desc) }
+
   # has_one :adresse
   # validate :first_name, :first_name_start_with_vowel
 
