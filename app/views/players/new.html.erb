@@ -21,6 +21,10 @@
     </div>
     <br />
     <div>
+      <%= f.text_area :description, class: "w-100 py-2 px-3", placeholder: "Description" %>
+    </div>
+    <br />
+    <div>
       <%= f.collection_select :team_id, Team.all, :id, :name, { include_blank: "Select Team" }, { class: "w-100 py-2 px-3" } %>
     </div>
     <br />

@@ -19,3 +19,13 @@
   width: 70%;
   margin: 2rem auto;
 }
+
+.link {
+  color: black;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: blue;
+  text-decoration: underline;
+}

@@ -7,6 +7,10 @@ class PlayersController < ApplicationController
     @player = Player.new
   end
 
+  def show
+    @player = Player.find(params[:id])
+  end
+
   def create
     @player = Player.new(player_params)
 
@@ -31,6 +35,6 @@ class PlayersController < ApplicationController
   private
 
   def player_params
-    params.require(:player).permit(:first_name, :last_name, :age, :team_id)
+    params.require(:player).permit(:first_name, :last_name, :age, :description, :team_id)
   end
 end
